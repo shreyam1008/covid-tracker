@@ -12,9 +12,15 @@ export const fetchData = async () => {
   } catch (error) {}
 };
 
-export const fetchDailyDate = async () => {
+export const fetchDailyData = async () => {
   try {
-    const { data } = await axios.get("${url}/daily");
-  } catch (error) {}
+    const { data } = await axios.get(`${url}/daily`);
+    return data ;
+  } catch (error) {
+    console.log(error);
+  }
 };
- 
+
+
+
+//make new file for this and export defult
