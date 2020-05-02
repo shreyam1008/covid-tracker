@@ -58,7 +58,7 @@ export const Cards = ({
             <Typography variant="h5">
               <CountUp
                 start={0}
-                end={confirmed.value}
+                end={deaths.value}
                 duration={3}
                 separator=","
               />
@@ -83,7 +83,7 @@ export const Cards = ({
             <Typography variant="h5">
               <CountUp
                 start={0}
-                end={confirmed.value}
+                end={recovered.value}
                 duration={3}
                 separator=","
               />

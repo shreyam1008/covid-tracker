@@ -17,16 +17,29 @@ export const Chart = () => {
 
     // fetchAPI();
   }, []);
-  console.log(dailyData);
 
-  const lineChart = !!dailyData.length ? (
+  const lineChart = dailyData.length ? (
     <Line
       data={{
-        labels: "",
-        datasets: [{}, {}],
+        labels: dailyData.map(({date}) =>date),
+        datasets: [{
+          data: dailyData.map(({confirmed}) =>confirmed),
+          label: "infected",
+          borderColor: '#3333ff',
+          fill: "true"
+        }, {
+          data: dailyData.map(({deaths}) =>deaths),
+          label: "Deaths",
+          borderColor: '#000000',
+          fill: "true"
+        }],
       }}
     />
   ) : null;
 
-  return <div>Chart</div>;
+  return( 
+  <div className = {styles.container}>
+    {lineChart}
+  </div>
+  );
 };

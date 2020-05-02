@@ -5,5 +5,6 @@ body {
 .container {
   display: flex;
   align-items: center;
-  flex-direction: center;
+  justify-content: center;
+  flex-direction: column;
 }
