@@ -6,7 +6,7 @@ import { Line, Bar } from "react-chartjs-2";
 import styles from "./Chart.module.css";
 
 export const Chart = () => {
-  const [dailyData, setDailyData] = useState([]); 
+  const [dailyData, setDailyData] = useState([]);
 
   useEffect(() => {
     //instant return function
@@ -21,25 +21,24 @@ export const Chart = () => {
   const lineChart = dailyData.length ? (
     <Line
       data={{
-        labels: dailyData.map(({date}) =>date),
-        datasets: [{
-          data: dailyData.map(({confirmed}) =>confirmed),
-          label: "infected",
-          borderColor: '#3333ff',
-          fill: "true"
-        }, {
-          data: dailyData.map(({deaths}) =>deaths),
-          label: "Deaths",
-          borderColor: '#000000',
-          fill: "true"
-        }],
+        labels: dailyData.map(({ date }) => date),
+        datasets: [
+          {
+            data: dailyData.map(({ confirmed }) => confirmed),
+            label: "infected",
+            borderColor: "#3333ff",
+            fill: "true",
+          },
+          {
+            data: dailyData.map(({ deaths }) => deaths),
+            label: "Deaths",
+            borderColor: "#000000",
+            fill: "true",
+          },
+        ],
       }}
     />
   ) : null;
 
-  return( 
-  <div className = {styles.container}>
-    {lineChart}
-  </div>
-  );
+  return <div className={styles.container}>{lineChart}</div>;
 };
